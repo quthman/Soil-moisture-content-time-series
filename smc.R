@@ -12,18 +12,18 @@ library(ggplot2)
 #names(pdfFonts())
 #https://github.com/wch/extrafont/issues/88 (issues to fix fonts)
 science_theme <- theme(plot.background = element_rect(fill = "white"), 
-											 panel.background = element_rect(fill="white"), 
-											 panel.grid.major = element_blank(),
-											 panel.grid.minor = element_blank(), 
-											 axis.line = element_line(size = 0.7, color = "black"),
-											 axis.text=element_text(size = 12,
-											 											 family="Microsoft Sans Serif",
-											 											 color = "black"),
-											 text = element_text(size = 12,
-											 										family="Microsoft Sans Serif",
-											 										color = "black"),
-											 strip.background.x = element_rect("white"),
-											 strip.background.y = element_rect("white"))
+			panel.background = element_rect(fill="white"), 
+			panel.grid.major = element_blank(),
+			panel.grid.minor = element_blank(), 
+			axis.line = element_line(size = 0.7, color = "black"),
+			axis.text=element_text(size = 12,
+			family="Microsoft Sans Serif",
+			color = "black"),
+			text = element_text(size = 12,
+			family="Microsoft Sans Serif",
+			color = "black"),
+			strip.background.x = element_rect("white"),
+			strip.background.y = element_rect("white"))
 
 # Reshaping the 'dat' data frame into long format, with 'doy' as the identifier variable
 datn=reshape2::melt(dat, id.var="doy")
@@ -45,7 +45,7 @@ A=ggplot(datn,aes(x=doy, y=value, col=variable))+
 	facet_grid(variable~.)+
 	# Add a discrete color scale with a custom name and labels for soil depth
 	scale_color_discrete(name="Soil depth, cm",
-											 labels=c("0-15","15-30","30-45","45-60"))+
+	labels=c("0-15","15-30","30-45","45-60"))+
 	# Set y-axis label with units and variable name in math format
 	labs(y=expression(Volumetric~water~content ~ theta[v] ~~ cm^3~cm^-3), 
 			 x = "Day of the year")+
